@@ -245,12 +245,7 @@ namespace Coffee.UIExtensions
                     ResolveResolutionChange(psPos, scale);
                     Simulate(scale, _parent.isPaused || _delay);
 
-                    if (_delay && !_parent.isPaused)
-                    {
-                        Simulate(scale, _parent.isPaused);
-                    }
-
-                    // When the ParticleSystem simulation is complete, stop it.
+					// When the ParticleSystem simulation is complete, stop it.
                     if (!main.loop && main.duration <= _particleSystem.time && (_particleSystem.IsAlive() || _particleSystem.particleCount == 0))
                     {
                         _particleSystem.Stop(false);

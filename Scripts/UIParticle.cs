@@ -323,10 +323,14 @@ namespace Coffee.UIExtensions
         {
             if (!isActiveAndEnabled) return;
 
-            if (m_Renderers.Any(x => !x))
-            {
-                RefreshParticles(particles);
-            }
+			foreach (var rend in m_Renderers)
+			{
+				if (!rend)
+				{
+					RefreshParticles(particles);
+					break;
+				}
+			}
 
             var bakeCamera = GetBakeCamera();
             for (var i = 0; i < m_Renderers.Count; i++)
